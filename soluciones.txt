@@ -1,0 +1,47 @@
+Mariana Paula Velasco Ortiz 		260735
+# Teoría
+
+1. b
+2. a 
+3. 1NF
+4. Ambas se usan para filtrar, pero WHERE filtra  antes de GROUP BY y HAVING aplica a grupos creados por GROUP BY.
+5. c
+
+#######################################################################################################################################
+# Práctica
+
+1.
+SELECT
+	AVG(edad) AS edad_promedio
+FROM
+	alumnos
+WHERE
+	apellido LIKE '%ez';
+
+2.
+SELECT
+	calificaciones.nombre_materia,
+	COUNT(alumnos.expediente) AS num
+FROM
+	alumnos
+INNER JOIN 
+	calificaciones
+USING(expediente)
+WHERE edad > 20
+GROUP BY nombre_materia
+ORDER BY num DESC;
+
+3.
+SELECT
+	nombre,
+	SUM(calificacion) AS suma_calificacion
+FROM 
+	alumnos
+INNER JOIN
+	calificaciones
+USING(expediente)
+WHERE 
+	nombre_materia = 'Matemáticas' AND calificacion IS NOT NULL
+GROUP BY nombre
+ORDER BY calificacion DESC
+LIMIT 1 OFFSET 1;
