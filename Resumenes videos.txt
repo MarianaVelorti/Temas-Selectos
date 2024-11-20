@@ -1,0 +1,50 @@
+¿Qué es una Red Neuronal? Parte 1 La Neurona
+Las redes neuronales son una familia de algoritmos potentes que ayudan a modelar comportamientos inteligentes.
+Definiciones
+1. Neurona: unidad básica de procesamiento, tiene conexiones de entrada que recibe valores de entrada para estimularlo y obtener un valor de salida, hace una suma ponderada de cada conexión de entrada a la cual tendrá asociado un valor que identificará que tanto afectará a esa conexión y será la que podremos modificar.  Las neuronas son una variante de una regresión lineal, ya que también contamos con un término independiente que nos dará control para mover a la función lo que nos dará sesgo, y para tener control sobre nuestra función manipularemos siempre la variable de sesgo.  En general, las redes neuronales ayudan a crear distintas combinaciones entre variables hasta encontrar la perfecta para cumplir con todas las condiciones que se pidan" 
+2. Modelo de una puerta lógica AND u OR: frontera entre las dos clases a clasificar.
+3. Modelo de una puerta lógica XOR: no tiene solución ya que depende de una sola neurona, y solo se puede usar agregando otra.
+
+
+¿Qué es una Red Neuronal? Parte 2 La Red
+Con una sola neurona no se pueden separar linealmente a una nube de puntos distribuidos.
+Composición de una Red neuronal
+1. Capaz de entrada: Recibe las variables que afectan.
+2. Capaz ocultas.  Las combinaciones de acuerdo los valores recibidos.
+3. Capaz de salida. Los resultados de esas combinaciones.
+Con esta estructura se busca que una Red sea capaz de formar un conocimiento jerarquizado.
+Función de activación: Es una función escalonada que dice que para un valor de entrada mayor al umbral el input es uno y para una menor al umbral será cero, para producir inmediatamente el cambio. A grandes rasgos sirve para distorsionar el plano generado por la neurona.
+Función sigmoide:  permite variar la forma u orientación de acuerdo a cambios en parámetros de la red y es útil a partir de 4 variables.
+
+
+Jugando con Redes Neuronales - Parte 2.5
+Play ground tensor flow: Página de internet que permite jugar con redes neuronales modificando variables y función de activación para ver los resultados que esos cambios generan.
+Algunos elementos
+1. Datos:
+* Nubes de puntos.
+* Regresión. 
+* Encontrar la función ajustable a las variables.
+* Clasificación.
+* Separación de puntos.
+2. Variables de entrada:
+* Gradiente. Eje X valores positivos y negativos.
+* Eje Y.
+3. Variables de salida:
+* Input space, espacio de entrada, colocar en los ejes las entradas y visualizar los valores (solo se puede en dos dimensiones sin embargo puede haber muchas más de dos).
+* Para mejor visualización de resultados se pueden agregar varias capaz de entrada u ocultas y más neuronas, lo que generaría patrones de entradas.
+4. Capaz ocultas:
+* Podemos separar nubes de puntos y encontrar fronteras.
+* Discretizar para agregar funciones de activación (añadir una no linealidad) y donde podemos separar los puntos.
+* Añadir capa oculta para encontrar soluciones según las manipulaciones.
+* Cambiar el tipo de funciones de activación:  rectilinea uniforme, tangente hiperbolica, sigmoide y lineal.
+
+
+¿Qué es una Red Neuronal? Parte 3 Backpropagation
+Redes neuronales:. Son capaces de modelar información compleja, pueden usarse para resolver tareas de regresión o clasificación, ayudan a ganar más intuición.
+¿Qué se busca?  Que la red aprenda por si sola a partir de los datos, aprendizaje automático.
+Persceptron:  Concepto parecido a redes neuronales pero más ambiguo, este era en los años 50. 
+Backpropagation:  Se refiere a que usando un nuevo algoritmo de aprendizaje se podría conseguir que una Red neuronal autoajustara sus parámetros para así aprender una representación interna de información que esté procesando.
+1. Descenso del gradiente:   Conseguimos la estrategia perfecta para ajustar los parámetros de una regresión lineal reduciendo el error.
+2. ¿Cómo varía el coste ante un cambio del para metro W?  El gradiente influye a todas las conexiones por lo tanto no es tan fácil como una regresión lineal, por lo tanto combinamos el descenso del gradiente con el algoritmo backpropagation.
+3. Retropropagación de errores:   Analizar  la cadena de responsabilidades hacia atrás desde el error, siendo nuestra primera parada la última capa en función de cuánto se halla implicado cada neurona en general y seguimos retrocediendo capa por capa para encontrar cuál fue el principal error para cada neurona y sus parámetros, solamente propagando una única vez el error hacia atrás.
+4. Conclusión:  Los errores encontrados con el algoritmos serán los usados para calcular las derivadas parciales de cada parámetro de la red conformando así el vector gradiente, que es lo que se ocupa para el descenso del gradiente y así minimizar el error y entrenar a la red.
